@@ -1,0 +1,11 @@
+--- gopher-3.0.5/configure.in~	Mon Nov  4 01:47:43 2002
++++ gopher-3.0.5/configure.in	Mon Nov  4 01:47:43 2002
+@@ -123,7 +123,7 @@
+ unset ac_cv_func_connect
+ AC_CHECK_FUNCS(connect)])
+  
+-AC_CHECK_FUNC(gethostname, :, LIBOBJS="$LIBOBJS hostname.o")
++AC_CHECK_FUNC(gethostname, :, [AC_LIBOBJ([hostname.o])])
+ 
+ ######################################################################
+ dnl Check for WAIS
