@@ -1,13 +1,13 @@
 Summary:	gopher client
 Summary(pl):	Klient protoko³u gopher
 Name:		gopher
-Version:	3.0.5
+Version:	3.0.6
 Release:	1
 License:	GPL
 Group:		Applications/Networking
 Vendor:		John Goerzen <jgoerzen@complete.org>
-Source0:	http://gopher.quux.org:70/give-me-gopher/%{name}-%{version}.tar.gz
-# Source0-md5:	1527f94ba8538a2d029155844195bba8
+Source0:	http://gopher.quux.org:70/give-me-gopher/%{name}_%{version}.tar.gz
+# Source0-md5:	0cffe1ec0e3e5600af1fe590db852c12
 Patch0:		%{name}-ac.patch
 URL:		gopher://gopher.quux.org/1/Software/Gopher
 BuildRequires:	autoconf
@@ -21,19 +21,8 @@ The gopher client is used to talk to gopher servers.
 %description -l pl
 Klient protoko³u gopher s³u¿y do ³±czenia siê z serwerami gophera.
 
-%package server
-Summary:	gopherd - a gopher server
-Summary(pl):	gopherd - serwer gophera
-Group:		Networking/Daemons
-
-%description server
-gopherd - a gopher server.
-
-%description server -l pl
-gopherd - serwer gophera.
-
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
@@ -61,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc copyright README doc/{FAQ,PLATFORMS,TODO} doc/[cgo]*.changes doc/gindexd.doc
+%doc copyright README doc/{FAQ,PLATFORMS,TODO} doc/[cgo]*.changes
 %doc announcements/*.html
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/gopher
@@ -70,13 +59,3 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopher/gopherremote.rc
 %{_mandir}/man1/*
 %{_mandir}/man5/gopherrc.5*
-
-%files server
-%defattr(644,root,root,755)
-%doc doc/server.*
-%attr(755,root,root) %{_sbindir}/*
-%dir %{_sysconfdir}/gopherd
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopherd/gopherd.conf
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopherd/gopherdlocal.conf
-%{_mandir}/man5/gopherd.conf.5*
-%{_mandir}/man8/*
