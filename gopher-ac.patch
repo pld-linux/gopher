@@ -5,7 +5,36 @@
  AC_CHECK_FUNCS(connect)])
   
 -AC_CHECK_FUNC(gethostname, :, LIBOBJS="$LIBOBJS hostname.o")
-+AC_CHECK_FUNC(gethostname, :, [AC_LIBOBJ([hostname.o])])
++AC_CHECK_FUNC(gethostname, :, [AC_LIBOBJ([hostname])])
  
  ######################################################################
  dnl Check for WAIS
+@@ -180,8 +180,8 @@
+ AC_CHECK_LIB(malloc, main)
+ 
+ AC_SUBST(CLIENTLIBS)
+-AC_CHECK_LIB(curses, main, CLIENTLIBS="$CLIENTLIBS -lcurses")
+-AC_CHECK_LIB(termcap, main, CLIENTLIBS="$CLIENTLIBS -ltermcap")
++AC_CHECK_LIB(curses, main, CLIENTLIBS="$CLIENTLIBS -lcurses",
++[AC_CHECK_LIB(termcap, main, CLIENTLIBS="$CLIENTLIBS -ltermcap")])
+ AC_CHECK_LIB(crypt, crypt, GOPHERDLIBS="$GOPHERDLIBS -lcrypt")
+ 
+ dnl Checks for header files.
+@@ -206,13 +206,14 @@
+ AC_FUNC_STRCOLL
+ AC_FUNC_VFORK
+ AC_FUNC_VPRINTF
+-AC_FUNC_GETLOADAVG
++AC_CHECK_FUNC(getloadavg)
+ 
+ dnl Do this again so the AC_CHECK_FUNCS works.
+ 
+-AC_CHECK_LIB(curses, main)
+-AC_CHECK_LIB(termcap, main)
++save_LIBS="$LIBS"
++LIBS="$LIBS $CLIENTLIBS"
+ AC_CHECK_FUNCS(bzero gethostname fgetpwent get_current_dir_name getcwd getwd madvise mkdir mktime putenv re_comp select seteuid setsid socket strcasecmp strcspn strdup strerror strftime strspn strstr strtol sysconf tempnam tzset wait3 waitpid strcasestr regcomp regfree wattron wattroff wstandout wstandend)
++LIBS="$save_LIBS"
+ 
+ AC_TRY_LINK([#include <unistd.h>], [getdtablesize();])
+ AC_OUTPUT(Makefile Makefile.config gopherd/Makefile object/Makefile gopher/Makefile gopher/locales/Makefile doc/Makefile gophfilt/Makefile)
