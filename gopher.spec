@@ -56,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 #%defattr(644,root,root,755)
 #%doc doc/server.*
 #%attr(755,root,root) %{_bindir}/gopherd
-#%{_mandir}/man[58]/gopherd*
+#%%{_mandir}/man[58]/gopherd*
