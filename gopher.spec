@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Networking
 Vendor:		John Goerzen <jgoerzen@complete.org>
 Source0:	http://gopher.quux.org:70/give-me-gopher/%{name}-%{version}.tar.gz
+# Source0-md5:	1527f94ba8538a2d029155844195bba8
 Patch0:		%{name}-ac.patch
 URL:		gopher://gopher.quux.org/1/Software/Gopher
 #BuildRequires:	-
