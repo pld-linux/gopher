@@ -54,8 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc announcements/*.html
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/gopher
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopher/gopher.hlp
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopher/gopher.rc
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gopher/gopherremote.rc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gopher/gopher.hlp
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gopher/gopher.rc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gopher/gopherremote.rc
 %{_mandir}/man1/*
 %{_mandir}/man5/gopherrc.5*
