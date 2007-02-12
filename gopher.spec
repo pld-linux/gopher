@@ -1,5 +1,5 @@
 Summary:	gopher client
-Summary(pl):	Klient protoko³u gopher
+Summary(pl.UTF-8):   Klient protokoÅ‚u gopher
 Name:		gopher
 Version:	3.0.6
 Release:	1
@@ -18,8 +18,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The gopher client is used to talk to gopher servers.
 
-%description -l pl
-Klient protoko³u gopher s³u¿y do ³±czenia siê z serwerami gophera.
+%description -l pl.UTF-8
+Klient protokoÅ‚u gopher sÅ‚uÅ¼y do Å‚Ä…czenia siÄ™ z serwerami gophera.
 
 %prep
 %setup -q -n %{name}
