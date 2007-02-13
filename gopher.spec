@@ -1,5 +1,5 @@
 Summary:	gopher client
-Summary(pl.UTF-8):   Klient protokołu gopher
+Summary(pl.UTF-8):	Klient protokołu gopher
 Name:		gopher
 Version:	3.0.6
 Release:	1
