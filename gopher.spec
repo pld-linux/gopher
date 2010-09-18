@@ -9,6 +9,7 @@ Vendor:		John Goerzen <jgoerzen@complete.org>
 Source0:	http://gopher.quux.org:70/give-me-gopher/%{name}_%{version}.tar.gz
 # Source0-md5:	0cffe1ec0e3e5600af1fe590db852c12
 Patch0:		%{name}-ac.patch
+Patch1:		%{name}-gcc4.patch
 URL:		gopher://gopher.quux.org/1/Software/Gopher
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,6 +25,7 @@ Klient protokołu gopher służy do łączenia się z serwerami gophera.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
