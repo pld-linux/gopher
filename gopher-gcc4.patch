@@ -1,0 +1,72 @@
+--- gopher/gopher/form.c~	2003-08-18 18:58:14.000000000 +0200
++++ gopher/gopher/form.c	2010-09-14 10:01:03.429436929 +0200
+@@ -288,6 +288,7 @@
+                case ITEM_UNINIT: /* Unhandled cases... */
+                case ITEM_LABEL:
+                case ITEM_FILENAME:
++		    break;
+ 	       }
+ 	  }
+ 	  responses[respnum++] = NULL;
+--- gopher/object/BLblock.c~	2003-08-18 18:58:55.000000000 +0200
++++ gopher/object/BLblock.c	2010-09-14 09:59:23.262022050 +0200
+@@ -118,6 +118,7 @@
+ 	  STAinit(bl->data.text);
+ 	  break;
+      case BDATA_NONE:
++	  break;
+      }
+ }
+ 
+@@ -141,6 +142,7 @@
+ 	  GSdestroy(bl->data.gs);
+ 	  break;
+      case BDATA_NONE:
++	  break;
+      }
+ }
+ 
+@@ -174,6 +176,7 @@
+ 	  BLsetText(dest, orig->data.text);
+ 	  break;
+      case BDATA_NONE:
++	  break;
+      }
+ }
+ 
+@@ -209,6 +212,7 @@
+      case BDATA_NONE:
+      case BDATA_FILE:
+      case BDATA_GREF:
++	  break;
+      }
+      return(NULL);
+ }
+@@ -343,6 +347,7 @@
+ 	  fclose(infile);
+ 	  break;
+      case BDATA_NONE:
++	  break;
+      }
+ }
+ 
+--- gopher/object/GSgopherobj.c~	2003-08-18 18:58:58.000000000 +0200
++++ gopher/object/GSgopherobj.c	2010-09-14 10:00:07.728273088 +0200
+@@ -2003,6 +2003,7 @@
+      case news:
+      case unset:
+      case unknown:
++	  break;
+      }
+ 
+      if (serviceType == ftp) {
+--- gopher/object/url.c~	2003-08-18 18:58:57.000000000 +0200
++++ gopher/object/url.c	2010-09-14 10:00:27.080993698 +0200
+@@ -362,6 +362,7 @@
+           case ftp:
+           case unset:
+           case unknown:
++	       break;
+ 	  }
+ 	  URLsetHost(url, cp);
+      }
